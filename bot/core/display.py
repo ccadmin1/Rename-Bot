@@ -8,13 +8,13 @@ from typing import Union
 from pyrogram.types import Message, CallbackQuery
 from pyrogram.errors import FloodWait
 
-PROGRESS = """
-⏳ **Percentage:** `{0}%`
-✅ **Done:** `{1}`
-💠 **Total:** `{2}`
-📶 **Speed:** `{3}/s`
-🕰 **ETA:** `{4}`
-"""
+PROGRESS = f"""**{status_msg}** - {round(percentage, 2)}%
+**┣**{progressbar}
+**┣⊸⌊ꜱᴘᴇᴇᴅ⌉** {humanbytes(speed)}/s
+**┣⊸⌊ᴅᴏɴᴇ⌉** {humanbytes(current)}
+**┣⊸⌊ꜱɪᴢᴇ⌉** {humanbytes(total)}
+**┣⊸⌊ᴇᴛᴀ⌉** {time_to_complete}
+**╰─⌊⚡ʀᴇɴᴀᴍᴇ ʙᴏᴛ**"""
 
 
 async def progress_for_pyrogram(
